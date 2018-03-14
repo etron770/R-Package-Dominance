@@ -1,0 +1,7 @@
+ADI                     Average Dominance Index
+FDI                     Frequency based Dominance Index
+data_ADI                Demodata for ADI
+data_Network_1          Demodata for Social network Graph
+data_Network_2          Demodata for Social network Graph
+musicnotation           Music notation Graph
+sociogram               Social Network Graphs
