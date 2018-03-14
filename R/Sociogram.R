@@ -51,6 +51,22 @@
 
 #' @author Knut Krueger, \email{Knut.Krueger@equine-science.de}
 #' @keywords ~kwd1 ~kwd2
+#' @section Hints:{
+#' \bold{to create a excel sheet for Sociogram data:}\cr
+#' library(XLConnect)\cr 
+#' data(data_Network_1)\cr
+#' setwd('/your data directory/')\cr 
+#' wb <- loadWorkbook("sheet_for_using_with_Sociogram.xlsx",create=TRUE)\cr
+#' createSheet(wb, name = 'Sociogram_DATA')\cr
+#' writeWorksheet(wb,data_Network_1,sheet='Sociogram_DATA')\cr
+#' saveWorkbook(wb)\cr
+#' \cr
+#' \bold{to load the excel sheet:}\cr
+#' library(XLConnect)\cr
+#' setwd('/your data directory/')\cr
+#' wb <- loadWorkbook("sheet_for_using_with_Sociogram.xlsx")\cr
+#' data_sheet <- readWorksheet(wb1, sheet = "Sociogram_DATA")\cr  
+#' }
 #' @examples {
 #' ## you can eihter use:
 #' data_sheet=data.frame   ("action.from"=c(1,4,2,3,4,3,4,3,4,3,4,3,4,3,4),

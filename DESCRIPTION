@@ -1,6 +1,6 @@
 Package: Dominance
-Version: 1.1.0
-Date: 2018-10-03
+Version: 1.1.1
+Date: 2018-03-10
 Title: A Package to Calculate and Visualize Dominance Hierarchies
 Description: Functions to calculate ADI (Average Dominance Index) and FDI (Frequency-Based Dominance Index). Functions to visualize the Data with Social Network Graphs with Dual
     Directions and Music Notation Graph.
@@ -15,6 +15,6 @@ Imports:
     igraph,chron,gdata,XLConnect
 Suggests:
 License: GPL-3
-URL: NA
+URL: https://github.com/etron770/R-Package-Dominance/issues
 Packaged: NA
 RoxygenNote: 6.0.1

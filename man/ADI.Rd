@@ -21,19 +21,6 @@ items:  with "Name","item.number"\cr}
 
 \item{bytes}{a string where each enabled action is set to 1 and each disabled action is set to 0\cr
 Setting a behaviour to 2 means it is count double\cr}
-
-\item{\dots}{Additional parameters:
- \describe{
-  \item{\bold{actions}}{(data.frame) with "name.of.action","action.number","classification","weighting"; Classification 1 if "action.from"" wins; Classification 2 if "action.to" wins}
-  \item{\bold{Weigting}}{the factor which should be used to calculate the behavior (1 for "action.from"" wins -1 for "action.to" wins")\cr
-Setting a behaviour to 2 means it is count double}
-  \item{\bold{vcolors}}{as much colors as items, colors will returned as sorted ADI colors means color 1 = item rank 1, color 2 = item rank 2, and so on}
-  \item{\bold{workbook}}{the XlConnect Workbook for the Excel file to be changed\cr
-note: The workbook must be opened before}
-  \item{\bold{sheet}}{the sheet name ( ADI will be added to be sure not to delete any data}
-  \item{\bold{savecounts}}{if TRUE: save the counts of actions as sheet (availalbe only with workbook}
-  \item{\bold{saveAdi}}{if TRUE: save the FDI as sheet (availalbe only with workbook}
- }}
 }
 \value{
 returns a list with\cr
@@ -44,6 +31,27 @@ ADI_count_matrix - the counts from which the ADI was calulated\cr
 \description{
 A package to calculate Dominance Indices, print Soical Network Graphs and Music Notation Graphs.
 }
+\section{Hints}{
+{
+\bold{to create a excel sheet for ADI data:}\cr
+library(XLConnect)\cr 
+data(data_ADI)\cr
+setwd('/your data directory/')\cr 
+wb <- loadWorkbook("sheet_for_using_with ADI_and FDI.xlsx",create=TRUE)\cr
+createSheet(wb, name = 'ADI_DATA')\cr
+writeWorksheet(wb,data_ADI,sheet='ADI_DATA')\cr
+saveWorkbook(wb)\cr
+\cr
+\bold{to load the excel sheet:}\cr
+library(XLConnect)\cr
+setwd('/your data directory/')\cr
+excelfile<-"sheet_for_using_with ADI_and FDI.xlsx"\cr
+wb <- loadWorkbook("sheet_for_using_with ADI_and FDI.xlsx")\cr
+data_sheet <- readWorksheet(wb1, sheet = "ADI_DATA")\cr  
+\cr
+}
+}
+
 \examples{
 { #you can eihter use:
 data_sheet=data.frame   ("action.from"=c(1,4,2,3,4,3,4,3,4,3,4,3,4,3,4),

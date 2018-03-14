@@ -25,7 +25,7 @@
 #' note: The workbook must be opened before}
 #'   \item{\bold{sheet}}{the sheet name ( ADI will be added to be sure not to delete any data}
 #'   \item{\bold{savecounts}}{if TRUE: save the counts of actions as sheet (availalbe only with workbook}
-#'   \item{\bold{saveAdi}}{if TRUE: save the FDI as sheet (availalbe only with workbook}
+#'   \item{\bold{saveAdi}}if TRUE: save the FDI as sheet (availalbe only with workbook}
 #'  }  
 #' 
 #' 
@@ -42,7 +42,23 @@
 #'On using the DomWorld model to evaluate dominance ranking methods , de Vries, Han,  Behaviour, Volume 146, Number 6, 2009 , pp. 843-869(27)
 #'\url{http://dx.doi.org/10.1163/156853909X412241}
 #' }
-#' 
+#' @section Hints:{
+#' \bold{to create a excel sheet for ADI data:}\cr
+#' library(XLConnect)\cr 
+#' data(data_ADI)\cr
+#' setwd('/your data directory/')\cr 
+#' wb <- loadWorkbook("sheet_for_using_with ADI_and FDI.xlsx",create=TRUE)\cr
+#' createSheet(wb, name = 'ADI_DATA')\cr
+#' writeWorksheet(wb,data_ADI,sheet='ADI_DATA')\cr
+#' saveWorkbook(wb)\cr
+#' \cr
+#' \bold{to load the excel sheet:}\cr
+#' library(XLConnect)\cr
+#' setwd('/your data directory/')\cr
+#' excelfile<-"sheet_for_using_with ADI_and FDI.xlsx"\cr
+#' wb <- loadWorkbook("sheet_for_using_with ADI_and FDI.xlsx")\cr
+#' data_sheet <- readWorksheet(wb1, sheet = "ADI_DATA")\cr  
+#' }
 #' @examples { #you can eihter use:
 #' data_sheet=data.frame   ("action.from"=c(1,4,2,3,4,3,4,3,4,3,4,3,4,3,4),
 #'                          "action.to"=c(4,1,1,4,3,4,3,4,3,4,3,4,3,4,3),
