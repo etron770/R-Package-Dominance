@@ -1,4 +1,40 @@
-#'@export change.action.without.response
+#' changes kind of actions for all action without response
+#' 
+#' @name change.action.without.response
+#' 
+#' @param data.set data.frame f.e imported from a data sheet containing\cr
+#' "Name","item.number"\cr "action.from.","action.to","kind.of.action"\cr
+#' "name.of.action","action.number","classification","weighting"\cr
+#' @param action action normally with response
+#' @param response the normal response to the action
+#' @param newaction
+#' data.frame("name.of.action"="test","action.number"=1,"classification"=2,"weighting"=3)')
+#' @param ...  workbook : the XlConnect Workbook for the Excel file to be
+#' changed\cr note: The workbook must be opened before \cr \cr sheet: the
+#' sheet name (some random numbers will be added to be sure not to delete any
+#' data\cr \cr
+#' 
+#'  \describe{
+#'  as you can see in tht data_sheet there is normally \cr
+#'  action.from->1 action.to->4 kind.of.action->3\cr
+#'  and the response\cr
+#'  action.from->4 action.to->1 kind.of.action->5\cr
+#'  Sometimes there is no response visible and the actions without response must be not or different calculated\cr
+#'  With this function you can search any action without response and set it to an additional kind.of action\cr
+#'  }
+#' @return change.action.without.response returns the new data.set\cr
+#' @author Knut Krueger
+#' @keywords ~kwd1 ~kwd2
+#' @examples
+#' 
+#' 
+#' data(data_ADI)
+#' new_data=change.action.without.response(data_ADI,3,9,
+#'           newaction=data.frame("name.of.action"="test",
+#'           "action.number"=10,"classification"=2,"weighting"=3))
+#' new_data
+#' 
+#' @export change.action.without.response
 change.action.without.response <-
   function(data.set,action,response,newaction, ...)
   {

@@ -1,7 +1,22 @@
+#' for internal use only
+#' @author Knut krueger
 #'@export search.win.lose
+#'@export detect_bits
 search.win.lose <-
 function(data_sheet, ...)
 {
+  #'  set if set = TRUE returns all true bits if set = false returns all
+  #' false bits
+  #' @author Knut krueger
+  #' 
+  #' 
+  #' ---- Should be DIRECTLY executable !! ----
+  #' -- ==>  Define data, use random,
+  #' --	or do  help(data=index)  for the standard data sets.
+  #' 
+  #'  The function is currently defined as
+  #' 'for internal use only'
+  #' 
     args = list(...)
 
 if ("bits" %in% names(args))      
@@ -122,3 +137,41 @@ if ("weighting" %in% names(args))
       win_lose <- data.frame("wins"=temp_lose,"loses"=temp_win)
       return(list(original=data_sheet,data.win.lose=win_lose,items=max_items))
 }
+
+
+#' 
+detect_bits <-
+  function(bits,set=TRUE)
+  {
+    #' 
+    #' 
+    #'  bits %% ~~Describe \code{bits} here~~
+    #'  set if set = TRUE returns all true bits if set = false returns all
+    #' false bits
+    #' @author Knut krueger
+    #' examples
+    #' 
+    #' Should be DIRECTLY executable !! ----
+    #' ==>  Define data, use random,
+    #' 	or do  help(data=index)  for the standard data sets.
+    #' 
+    #'  The function is currently defined as
+    #' 'for internal use only'
+    #' 
+    # ----------------------- detect other char than 0 and 1 -> error -------------
+    # TRUE if all 0 and 1
+    all_bits <- (regexpr("^[01]*$", bits) > 0) 
+    if (all_bits ==FALSE)
+    {
+      print("errror in detect_bits: variable bits must contain only \"0\" and \"1\"",quote=FALSE)
+      {
+        return(all_bits)
+        stop("errror in detect_bits: variable bits must contain only \"0\" and \"1\"")
+      }
+    }#end if
+    
+    # end detect other char than 0 and 1 -> error
+    if (set==TRUE) return(match <- gregexpr("1", bits)[[1]])
+    if (set==FALSE)return(match <- gregexpr("0", bits)[[1]])
+    
+  }

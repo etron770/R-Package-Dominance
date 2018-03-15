@@ -42,8 +42,27 @@ FDI_count_matrix - the counts from which the FDI was calulated\cr
 \description{
 A package to calculate Dominance Indices, print Soical Network Graphs and Music Notation Graphs.
 }
+\section{Hints}{
+{
+\bold{to create a excel sheet for ADI data:}\cr
+library(XLConnect)\cr 
+data(data_ADI)\cr
+setwd('/your data directory/')\cr 
+wb <- loadWorkbook("sheet_for_using_with_ADI_and_FDI.xlsx",create=TRUE)\cr
+createSheet(wb, name = 'FDI_DATA')\cr
+writeWorksheet(wb,data_FDI,sheet='FDI_DATA')\cr
+saveWorkbook(wb)\cr
+\cr
+\bold{to load the excel sheet:}\cr
+library(XLConnect)\cr
+setwd('/your data directory/')\cr
+wb <- loadWorkbook("sheet_for_using_with_ADI_and_FDI.xlsx")\cr
+data_sheet <- readWorksheet(wb1, sheet = "FDI_DATA")\cr  
+}
+}
+
 \examples{
-{ #you can eihter use:
+ #you can eihter use:
 data_sheet=data.frame   ("action.from"=c(1,4,2,3,4,3,4,3,4,3,4,3,4,3,4),
                          "action.to"=c(4,1,1,4,3,4,3,4,3,4,3,4,3,4,3),
 "kind.of.action"= c(4,1,1,4,3,4,3,4,3,4,3,4,3,4,3),stringsAsFactors=FALSE)
@@ -62,7 +81,7 @@ FDI(data_sheet,items=items,actions=actions,bytes)
 data(data_ADI)
 bytes= "001111111"  
 FDI(data_ADI,bytes)
-   }
+   
 }
 \references{
 {

@@ -25,6 +25,7 @@
 #'   \item{\bold{savecounts}}{if TRUE: save the counts of actions as sheet (availalbe only with workbook}
 #'   \item{\bold{saveFDI}}{if TRUE: save the FDI as sheet (availalbe only with workbook}
 #'  }  
+#'  
 #' 
 #' @return returns a list with\cr
 #'FDI - the Frequency Based Dominance index\cr
@@ -53,7 +54,7 @@
 #' wb <- loadWorkbook("sheet_for_using_with_ADI_and_FDI.xlsx")\cr
 #' data_sheet <- readWorksheet(wb1, sheet = "FDI_DATA")\cr  
 #' }
-#' @examples { #you can eihter use:
+#' @examples  #you can eihter use:
 #' data_sheet=data.frame   ("action.from"=c(1,4,2,3,4,3,4,3,4,3,4,3,4,3,4),
 #'                          "action.to"=c(4,1,1,4,3,4,3,4,3,4,3,4,3,4,3),
 #' "kind.of.action"= c(4,1,1,4,3,4,3,4,3,4,3,4,3,4,3),stringsAsFactors=FALSE)
@@ -72,11 +73,10 @@
 #' data(data_ADI)
 #' bytes= "001111111"  
 #' FDI(data_ADI,bytes)
-#'    }
+#'    
 #' @export FDI
 #' @importFrom gdata rename.vars  
 #' @importFrom XLConnect createSheet writeWorksheet saveWorkbook
-
 
 
 FDI <-
